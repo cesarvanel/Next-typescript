@@ -1,5 +1,6 @@
 
-import React,{ReactNode} from "react" ;
+import React,{ReactNode , useState} from "react" ;
+import {useCounter} from '../context/context'
 
 type Props = {
 
@@ -9,13 +10,15 @@ type Props = {
 
 }
 
-export function Counter ({start = 0} : Props){
+export function Counter ({start = 0 , children} : Props){
 
+  const {n , incr} = useCounter();
     return <div>
         <h2>Compteur</h2>
+        {children}
         <p>
-            Numero {start}
+            Numero {n}
         </p>
-        <button>Incrementer</button>
+        <button onClick={incr}>Incrementer</button>
     </div>
 }

@@ -1,19 +1,21 @@
 import { type } from "os";
 import ListItems from "./listitems";
-import {User} from '../../interfaces/index'
+import { User } from "../../interfaces/index";
 
-
-type Props ={
-
-    items : User[] 
-}
+type Props = {
+  items: User []
+};
 
 function List({ items }: Props) {
   return (
     <div>
       <ul>
-
-        </ul>
+        {items.map((item) => {
+          <li key={item.id}>
+            <ListItems datas={item} />
+          </li>;
+        })}
+      </ul>
     </div>
   );
 }

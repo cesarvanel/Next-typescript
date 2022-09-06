@@ -1,11 +1,10 @@
-import react, { ReactNode } from "react";
+import react, { PropsWithChildren, ReactNode} from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-type Props = {
+type Props = PropsWithChildren < {
   title?: string;
-  children?: ReactNode;
-};
+}>;
 
 function Layout({ children, title = "Next+Type" }: Props) {
   return (
